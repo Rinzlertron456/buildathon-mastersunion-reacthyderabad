@@ -71,7 +71,7 @@ unanswerable, personal-private, cross-channel, and cross-workspace queries.
 4. Explicit refusal when evidence is unavailable or inaccessible.
 5. Slack slash commands, mentions, direct messages, and threaded follow-ups.
 6. Document summaries, auto-tags, recent-document status, and FastAPI health checks.
-7. A reproducible 45-case RAG and security evaluation harness.
+7. A reproducible 45-case RAG/security evaluation and 60-document scale smoke.
 
 ---
 
@@ -82,18 +82,22 @@ unanswerable, personal-private, cross-channel, and cross-workspace queries.
 - End-to-end ingestion, retrieval, generation, citations, and refusal are working.
 - Personal and team scope isolation is verified.
 - FastAPI `/healthz` and `/readyz` endpoints are working.
-- All 21 unit tests pass and Ruff reports no issues.
-- Golden evaluation: 100% grounded score, 100% citation validity, 100% refusal
-  precision, zero ACL leaks, and 3.782-second p95 latency across 45 synthetic cases.
+- The Slack app is installed in the target workspace and runs through Socket Mode.
+- Live Slack checks pass for PDF, DOCX, URL, text, cited Q&A, follow-up memory,
+  refusal, personal/team/organisation scopes, status, and summarization.
+- All 24 unit tests pass and Ruff reports no issues.
+- Latest golden evaluation: 97.78% grounded score, 100% citation validity, 100%
+  refusal precision, zero ACL leaks, and 5.035-second p95 latency across 45 cases.
+- A 60-document pgvector smoke achieved 100% exact retrieval and 0.0073-second
+  p95 database search latency.
 
 ---
 
 ## What is Still in Progress?
 
-- Final Slack app manifest installation and workspace token configuration.
-- Hosted Supabase and worker deployment.
-- Interactive Slack modals, App Home, and document lifecycle controls.
-- React administration and evaluation dashboard.
+The evaluated buildathon workflow is complete. Optional production enhancements
+include hosted deployment, interactive Slack modals, App Home, document lifecycle
+controls, OCR, audit dashboards, and a React administration interface.
 
 ---
 
@@ -101,7 +105,7 @@ unanswerable, personal-private, cross-channel, and cross-workspace queries.
 
 **Deployed Link:** Local working prototype  
 **Demo Video Link:** To be added  
-**Screenshots:** To be added
+**Live Evidence:** See `docs/EVALUATION_AUDIT.md` in the project repository
 
 ---
 
